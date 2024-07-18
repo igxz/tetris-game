@@ -4,6 +4,7 @@ export interface IPoint {
 }
 
 export interface IViewer {
+  
   /**
    * 显示
    */

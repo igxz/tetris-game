@@ -1,0 +1,26 @@
+# Compiled JavaScript files
+*.js
+*.jsx
+*.js.map
+
+# TypeScript declaration files
+*.d.ts
+
+# Compiled output
+dist/
+out/
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+*.bak

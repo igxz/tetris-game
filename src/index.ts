@@ -1,20 +1,10 @@
-import { SquareGroup } from './core/SquareGroup';
+import { createRandomTetris } from './core/Tetris';
 import { SquarePageViewer } from './core/viewer/SquarePageViewer';
-import { Square } from './core/Square';
 import $ from 'jquery';
 
-const squareG = new SquareGroup(
-  [
-    { x: 0, y: -1 },
-    { x: -1, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 1 },
-  ],
-  { x: 5, y: 5 },
-  'red'
-);
+const tetris = createRandomTetris({x: 3, y:3});
 
-squareG.squares.forEach((square) => {
+tetris.squares.forEach((square) => {
   square.viewer = new SquarePageViewer(square, $('#root'));
 });
 
@@ -24,43 +14,41 @@ squareG.squares.forEach((square) => {
 // viewer.show();
 
 $('#btnUp').on('click', () => {
-  squareG.centerPoint = {
-    x: squareG.centerPoint.x,
-    y: squareG.centerPoint.y - 1,
+  tetris.centerPoint = {
+    x: tetris.centerPoint.x,
+    y: tetris.centerPoint.y - 1,
   };
 });
 
 $('#btnDown').on('click', () => {
-  squareG.centerPoint = {
-    x: squareG.centerPoint.x,
-    y: squareG.centerPoint.y + 1,
+  tetris.centerPoint = {
+    x: tetris.centerPoint.x,
+    y: tetris.centerPoint.y + 1,
   };
 });
-
 
 $('#btnLeft').on('click', () => {
-  squareG.centerPoint = {
-    x: squareG.centerPoint.x - 1,
-    y: squareG.centerPoint.y,
+  tetris.centerPoint = {
+    x: tetris.centerPoint.x - 1,
+    y: tetris.centerPoint.y,
   };
 });
 
-
 $('#btnRight').on('click', () => {
-  squareG.centerPoint = {
-    x: squareG.centerPoint.x+1,
-    y: squareG.centerPoint.y,
+  tetris.centerPoint = {
+    x: tetris.centerPoint.x + 1,
+    y: tetris.centerPoint.y,
   };
 });
 
 $('#btnRemove').on('click', () => {
-  squareG.squares.forEach((sq) => {
+  tetris.squares.forEach((sq) => {
     sq.viewer?.remove();
   });
 });
 
 $('#btnAdd').on('click', () => {
-  squareG.squares.forEach((sq) => {
+  tetris.squares.forEach((sq) => {
     sq.viewer = new SquarePageViewer(sq, $('#root'));
   });
 });

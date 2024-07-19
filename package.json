@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/igxz/tetris-game#readme",
   "devDependencies": {
+    "@types/jquery": "^3.5.30",
     "@webpack-cli/generators": "^3.0.7",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.2",
@@ -38,5 +39,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
     "workbox-webpack-plugin": "^7.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
   }
 }

@@ -35,6 +35,7 @@ export class Square {
 
   set viewer(value) {
     this._viewer = value;
+    this._viewer?.show();
   }
 }
 

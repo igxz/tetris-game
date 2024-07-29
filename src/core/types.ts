@@ -4,7 +4,6 @@ export interface IPoint {
 }
 
 export interface IViewer {
-  
   /**
    * 显示
    */
@@ -17,3 +16,9 @@ export interface IViewer {
 }
 
 export type Shape = IPoint[];
+
+export enum MoveDirection {
+  LEFT,
+  RIGHT,
+  DOWN,
+}

@@ -21,6 +21,10 @@ export class SquareGroup {
     this._squares = arr;
   }
 
+  get shape() {
+    return this._shape;
+  }
+
   get squares() {
     return this._squares;
   }

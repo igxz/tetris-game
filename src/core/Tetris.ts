@@ -1,4 +1,3 @@
-import { Square } from './Square';
 import { SquareGroup } from './SquareGroup';
 import { IPoint, Shape } from './types';
 import { getRandomNumber } from './utils';

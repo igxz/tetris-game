@@ -11,9 +11,13 @@ tetris.squares.forEach((square) => {
 });
 
 $('#btnDown').on('click', () => {
-  //TetrisRule.moveDirectly(tetris, MoveDirection.DOWN);
   TetrisRule.move(tetris, MoveDirection.DOWN);
 });
+
+$('#btnStraightDown').on('click', () => {
+  TetrisRule.moveDirectly(tetris, MoveDirection.DOWN);
+});
+
 
 $('#btnLeft').on('click', () => {
   TetrisRule.move(tetris, MoveDirection.LEFT);
@@ -33,4 +37,8 @@ $('#btnAdd').on('click', () => {
   tetris.squares.forEach((sq) => {
     sq.viewer = new SquarePageViewer(sq, $('#root'));
   });
+});
+
+$('#btnRotate').on('click', () => {
+  TetrisRule.rotate(tetris);
 });

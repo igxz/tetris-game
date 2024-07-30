@@ -1,57 +1,132 @@
 import { SquareGroup } from './SquareGroup';
-import { IPoint, Shape } from './types';
+import { IPoint } from './types';
 import { getRandomNumber } from './utils';
 
-export const TShape: Shape = [
-  { x: -1, y: 0 },
-  { x: 0, y: 0 },
-  { x: 1, y: 0 },
-  { x: 0, y: -1 },
-];
+export class TShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: -1, y: 0 },
+        { x: 0, y: 0 },
+        { x: 1, y: 0 },
+        { x: 0, y: -1 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
+}
 
-export const LShape: Shape = [
-  { x: -2, y: 0 },
-  { x: -1, y: 0 },
-  { x: 0, y: 0 },
-  { x: 0, y: -1 },
-];
+export class LShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: -2, y: 0 },
+        { x: -1, y: 0 },
+        { x: 0, y: 0 },
+        { x: 0, y: -1 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
+}
 
-export const LMirrorShape: Shape = [
-  { x: 2, y: 0 },
-  { x: 1, y: 0 },
-  { x: 0, y: 0 },
-  { x: 0, y: -1 },
-];
+export class LMirrorShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: 2, y: 0 },
+        { x: 1, y: 0 },
+        { x: 0, y: 0 },
+        { x: 0, y: -1 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
+}
 
-export const SShape: Shape = [
-  { x: 0, y: 0 },
-  { x: 1, y: 0 },
-  { x: 0, y: 1 },
-  { x: -1, y: 1 },
-];
+export class SShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: 0, y: 0 },
+        { x: 1, y: 0 },
+        { x: 0, y: 1 },
+        { x: -1, y: 1 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
 
-export const SMirrorShape: Shape = [
-  { x: 0, y: 0 },
-  { x: -1, y: 0 },
-  { x: 0, y: 1 },
-  { x: 1, y: 1 },
-];
+  rotate(): void {
+    super.rotate();
+    this._isClockwise = !this._isClockwise;
+  }
+}
 
-export const SquareShape: Shape = [
-  { x: 0, y: 0 },
-  { x: 1, y: 0 },
-  { x: 0, y: 1 },
-  { x: 1, y: 1 },
-];
+export class SMirrorShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: 0, y: 0 },
+        { x: -1, y: 0 },
+        { x: 0, y: 1 },
+        { x: 1, y: 1 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
 
-export const LineShape: Shape = [
-  { x: -1, y: 0 },
-  { x: 0, y: 0 },
-  { x: 1, y: 0 },
-  { x: 2, y: 0 },
-];
+  rotate(): void {
+    super.rotate();
+    this._isClockwise = !this._isClockwise;
+  }
+}
 
-export const shapes: Shape[] = [
+export class SquareShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: 0, y: 0 },
+        { x: 1, y: 0 },
+        { x: 0, y: 1 },
+        { x: 1, y: 1 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
+
+  afterRotatedShape() {
+    return this.shape;
+  }
+}
+
+export class LineShape extends SquareGroup {
+  constructor(_centerPoint: IPoint, _color: string) {
+    super(
+      [
+        { x: -1, y: 0 },
+        { x: 0, y: 0 },
+        { x: 1, y: 0 },
+        { x: 2, y: 0 },
+      ],
+      _centerPoint,
+      _color
+    );
+  }
+
+  rotate(): void {
+    super.rotate();
+    this._isClockwise = !this._isClockwise;
+  }
+}
+
+export const shapes = [
   TShape,
   LShape,
   LMirrorShape,
@@ -67,10 +142,10 @@ export const colors = ['red', 'yellow', 'green', '#fff', 'orange'];
  * 随机产生一个俄罗斯方块，颜色随机，形状随机
  * @param centerPoint
  */
-export function createRandomTetris(centerPoint: IPoint) {
+export function createRandomTetris(centerPoint: IPoint): SquareGroup {
   let randomIndex = getRandomNumber(0, shapes.length);
   const shape = shapes[randomIndex];
   randomIndex = getRandomNumber(0, colors.length);
   const color = colors[randomIndex];
-  return new SquareGroup(shape, centerPoint, color);
+  return new shape(centerPoint, color);
 }

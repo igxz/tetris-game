@@ -38,5 +38,3 @@ export class Square {
     this._viewer?.show();
   }
 }
-
-const s = new Square({ x: 0, y: 2 }, 'blue');

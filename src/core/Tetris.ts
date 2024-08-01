@@ -136,7 +136,7 @@ export const shapes = [
   LineShape,
 ];
 
-export const colors = ['red', 'yellow', 'green', '#fff', 'orange'];
+export const colors = ['red', 'yellow', 'green', 'orange'];
 
 /**
  * 随机产生一个俄罗斯方块，颜色随机，形状随机

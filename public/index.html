@@ -1,52 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tetris - 俄罗斯方块</title>
     <style>
-        #root {
-            justify-content: center;
-            display: flex;
-        }
-        #panel {
-            width: 300px;
-            height: 300px;
-            background: #000;
-            position: relative;
-        }
-        #next {
-            position: relative;
-            width: 120px;
-            height: 120px;
-        }
+      #root {
+        justify-content: center;
+        display: flex;
+      }
+      #panel {
+        width: 300px;
+        height: 300px;
+        background: #000;
+        position: relative;
+      }
+      #tip {
+        margin-left: 1em;
+      }
+      #next {
+        position: relative;
+        width: 120px;
+        height: 120px;
+      }
+      #score {
+        font-size: 4em;
+        font-weight: bold;
+        color: teal;
+        text-align: center;
+      }
+      #level {
+        font-size: 1.5em;
+        color: orange;
+        text-align: center;
+      }
+      #message {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+      }
+      #message p {
+        border: 2px solid #fff;
+        padding: 1em;
+        background: #f20;
+        color: #fff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root">
-        <div id="panel">
-
+      <div id="panel">
+        <div id="message">
+          <p>游戏暂停</p>
         </div>
-        <div id="tip">
-            <div id="next"></div>
-        </div>
+      </div>
+      <div id="tip">
+        <div id="next"></div>
+        <div id="score"></div>
+        <div id="level"></div>
+        <p>使用键盘进行游戏：</p>
+        <p>↑：旋转</p>
+        <p>↓：向下</p>
+        <p>←：左</p>
+        <p>→：右</p>
+        <p>空格：暂停/恢复/开始</p>
+      </div>
     </div>
-    <div style="text-align: center">
-        <!-- <button id="btnUp">⬆</button> -->
-        <!-- <button id="btnDown">⬇</button>
-        <button id="btnStraightDown">⬇⬇</button>
-        <button id="btnLeft">⬅</button>
-        <button id="btnRight">➡</button>
-        <button id="btnRemove">Remove</button>
-        <button id="btnAdd">Add</button>
-        <button id="btnRotate">Rotate</button> -->
-        <button id="btnStart">Start</button>
-        <button id="btnPause">Pause</button>
-
-        <button id="btnDown">⬇</button>
-        <button id="btnLeft">⬅</button>
-        <button id="btnRight">➡</button>
-        <button id="btnRotate">⬆</button>
+    <div style="text-align: center"> 
+      <button id="btnStart">Start</button>
+      <button id="btnPause">Pause</button>
     </div>
-</body>
+  </body>
 </html>

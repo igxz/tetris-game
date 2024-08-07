@@ -1,6 +1,6 @@
 # 🚀 Tetris game by Typescript, JQuery and Webpack
 
-you can now run following command to install and play.
+you can run following command to install and play.
 
 > install
 ```

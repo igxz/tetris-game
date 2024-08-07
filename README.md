@@ -1,15 +1,16 @@
 # 🚀 Tetris game by Typescript, JQuery and Webpack
 
-This project has been created using **webpack-cli**, you can now run
+you can now run following command to install and play.
 
+> install
 ```
-npm run build
-```
-
-or
-
-```
-yarn build
+npm i
 ```
 
-to bundle your application
+> play
+```
+npm run serve
+```
+
+
+Have fun !
